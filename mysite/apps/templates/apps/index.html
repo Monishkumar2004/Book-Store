@@ -1,0 +1,21 @@
+
+{% extends 'apps/base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for book in book_list %}
+            <div class="col-md-3">
+                <div class="cards">
+                    <img src="{{book.book_image.url}}" class="card-img-top" alt="" width="230" height="320">
+                    <div class="card-body">
+                        <h5>{{book.name}}</h5>                        
+                        <p>{{book.price}}</p>                        
+                        <a class="btn btn-primary" href="{% url 'apps:details' book.id %}">View Details</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
